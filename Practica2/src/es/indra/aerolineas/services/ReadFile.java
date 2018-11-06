@@ -33,7 +33,7 @@ public class ReadFile {
 	}
 
 	public static void main(String[] args) {
-		//ReadFile r = new ReadFile();
-		//r.retornarVuelos();
+		ReadFile r = new ReadFile();
+		r.retornarVuelos();
 	}
 }
