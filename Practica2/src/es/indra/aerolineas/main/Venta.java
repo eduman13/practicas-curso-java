@@ -1,7 +1,12 @@
 /**
  * 
  */
-package es.indra.aerolineas;
+package es.indra.aerolineas.main;
+
+import es.indra.aerolineas.beans.impl.Aerolinea;
+import es.indra.aerolineas.beans.impl.Empleado;
+import es.indra.aerolineas.beans.impl.Pasajero;
+import es.indra.aerolineas.beans.impl.Vuelo;
 
 /**
  * @author josejarizav
@@ -29,23 +34,29 @@ public class Venta {
 		
 		Pasajero p = new Pasajero();
 		
+		
+		Empleado emp = new Empleado();
+		emp.setNombre("Vendedor 1");
+		
 		Vuelo[] vuelosPasajero = {vuelos[0], vuelos[4]};
 		
-		p.id = 10;
-		p.nombre = "Jose Julian";
-		p.apellido = "Ariza Valderrama";
-		p.vuelos = vuelosPasajero;
+		p.setId(10); 
+		p.setNombre("Jose Julian"); 
+		p.setApellido("Ariza Valderrama"); 
+		p.setVuelos(vuelosPasajero);
 		
 		System.out.println("*************************************************************************");
 		
-		System.out.println("|\tBienvenidos a aerolineas ".concat(aa.nombre));
+		System.out.println("|\tBienvenidos a aerolineas ".concat(aa.getNombre()));
 		
-		System.out.printf("|\tTenemos %s vuelos disponibles%n",aa.vuelos.length);
+		System.out.printf("|\tTenemos %s vuelos disponibles%n",aa.getVuelos().length);
 		
-		System.out.printf("|\t%s, gracias por confiar en nosotros. Tienes %s vuelos comprados %n", p.nombre,p.vuelos.length );
+		System.out.printf("|\t%s, gracias por confiar en nosotros. Tienes %s vuelos comprados %n", p.getNombre(),p.getVuelos().length );
 		
 		System.out.println("*************************************************************************");
 		
+		//System.out.println(emp.getNombre());
+		//System.out.println(p.getNombre());
 		
 		
 
