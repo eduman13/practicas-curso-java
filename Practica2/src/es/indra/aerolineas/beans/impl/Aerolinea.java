@@ -32,6 +32,7 @@ public class Aerolinea implements IAerolinea {
 	}
 
 	public Vuelo[] consultarVuelos(String origen) {
+		
 		return this.vuelos;
 	}
 
