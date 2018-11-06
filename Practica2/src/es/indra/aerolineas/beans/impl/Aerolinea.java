@@ -11,12 +11,12 @@ import es.indra.aerolineas.beans.IAerolinea;
  *
  */
 public class Aerolinea implements IAerolinea {
-	
+
 	private int id;
 	private String nombre;
 	private Vuelo[] vuelos = new Vuelo[10];
-	
-	public Aerolinea() {		
+
+	public Aerolinea() {
 	}
 
 	/**
@@ -30,32 +30,27 @@ public class Aerolinea implements IAerolinea {
 		this.nombre = nombre;
 		this.vuelos = vuelos;
 	}
-	
-	
+
 	public Vuelo[] consultarVuelos(String origen) {
 		return this.vuelos;
 	}
-	
-	
+
 	public Vuelo[] consultarVuelos(String origen, String destino) {
 		return this.vuelos;
 	}
-	
+
 	public void anularVuelos(String... vuelos) {
 		System.out.println("Número de vuelos a anular: " + vuelos.length);
 	}
-	
 
 	public int getId() {
 		return id;
 	}
 
-	
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	
 	public String getNombre() {
 		return nombre;
 	}
@@ -64,18 +59,12 @@ public class Aerolinea implements IAerolinea {
 		this.nombre = nombre;
 	}
 
-	
 	public Vuelo[] getVuelos() {
 		return vuelos;
 	}
 
-	
 	public void setVuelos(Vuelo[] vuelos) {
 		this.vuelos = vuelos;
 	}
-
-	
-	
-	
 
 }
