@@ -3,7 +3,11 @@
  */
 package es.indra.aerolineas.beans.impl;
 
+import java.util.Iterator;
+import java.util.List;
+
 import es.indra.aerolineas.beans.IAerolinea;
+import es.indra.aerolineas.services.ReadFile;
 
 /**
  * @author josejarizav
@@ -66,6 +70,17 @@ public class Aerolinea implements IAerolinea {
 
 	public void setVuelos(Vuelo[] vuelos) {
 		this.vuelos = vuelos;
+	}
+	
+	public void consultarVuelos() {
+		ReadFile file = new ReadFile();
+		List<String> imprimir = file.retornarVuelos();
+		Iterator<String> it = imprimir.iterator();
+		while(it.hasNext()){
+			String elemento = it.next();
+			System.out.println(elemento);
+		}
+		
 	}
 
 }

@@ -59,6 +59,9 @@ public class Venta {
 		//System.out.println(emp.getNombre());
 		//System.out.println(p.getNombre());
 		
+		aa.consultarVuelos();
+		
+		
 		
 
 	}

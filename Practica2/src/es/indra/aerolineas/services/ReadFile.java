@@ -3,11 +3,11 @@
  */
 package es.indra.aerolineas.services;
 
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,20 +16,24 @@ import java.util.List;
  */
 public class ReadFile {
 
-	public void retornarVuelos() {
-		Path path = Paths.get("C:\\Users\\aula3\\repositorios\\CursoJava\\vuelo.txt");
+	public List<String> retornarVuelos() {
+		Path path = Paths.get("C:\\Users\\aula3\\repositorios\\CursoJava\\vuelos.txt");
+		List<String> contenido = new ArrayList<>();
 		try {
-			List<String> contenido = Files.readAllLines(path);
-			System.out.println(contenido);
+			contenido = Files.readAllLines(path);
+			//System.out.println(contenido);
+			return contenido;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//System.out.println("No existe el fichero");
-		}	
+			// System.out.println("No existe el fichero");
+		}
+		return contenido;
+
 	}
-	
+
 	public static void main(String[] args) {
-		ReadFile r = new ReadFile();
-		r.retornarVuelos();
+		//ReadFile r = new ReadFile();
+		//r.retornarVuelos();
 	}
 }

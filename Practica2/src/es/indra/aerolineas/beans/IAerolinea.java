@@ -7,6 +7,7 @@ public interface IAerolinea {
 	void anularVuelos(String... vuelos);
 	public Vuelo[] consultarVuelos(String origen);
 	public Vuelo[] consultarVuelos(String origen, String destino);
+	public void consultarVuelos();
 	public int getId();
 	public void setId(int id);
 	public String getNombre();
