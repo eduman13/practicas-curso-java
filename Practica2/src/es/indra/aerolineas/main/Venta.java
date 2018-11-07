@@ -44,6 +44,7 @@ public class Venta {
 		p.setNombre("Jose Julian");
 		p.setApellido("Ariza Valderrama");
 		p.setVuelos(vuelosPasajero);
+		aa.consultarVuelos();
 
 		System.out.println("*************************************************************************");
 
@@ -58,8 +59,6 @@ public class Venta {
 
 		// System.out.println(emp.getNombre());
 		// System.out.println(p.getNombre());
-
-		aa.consultarVuelos();
 
 	}
 

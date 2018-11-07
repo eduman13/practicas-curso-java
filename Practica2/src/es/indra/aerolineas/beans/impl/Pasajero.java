@@ -9,26 +9,24 @@ package es.indra.aerolineas.beans.impl;
  *
  */
 public class Pasajero extends Persona {
-	
-	
+
 	private int id;
 	private Vuelo[] vuelos;
-	
-	
+
 	/**
 	 * @param id
 	 * @param vuelos
 	 */
-	
-	public Pasajero() {}
-	
+
+	public Pasajero() {
+	}
+
 	public Pasajero(int id, Vuelo[] vuelos) {
 		super();
 		this.id = id;
 		this.vuelos = vuelos;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
@@ -44,7 +42,7 @@ public class Pasajero extends Persona {
 	public void setVuelos(Vuelo[] vuelos) {
 		this.vuelos = vuelos;
 	}
-	
+
 	public String getApellido() {
 		return apellido;
 	}
@@ -60,7 +58,7 @@ public class Pasajero extends Persona {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	
+
 	public String solicitarInformacion() {
 		return "";
 	}
