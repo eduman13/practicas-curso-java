@@ -10,44 +10,28 @@ package es.indra.aerolineas.beans.impl;
  */
 public class Vuelo {
 
-	private int id;
-	private String numeroVuelo;
-	private String origen;
-	private String destino;
-	private int numeroPasajeros;
-	private boolean disponible;
-	
+	protected int id;
+	protected String origen;
+	protected String destino;
+	protected String fecha;
 
-	public Vuelo() {}
-	
-	public Vuelo(int id) {
-		this.id = id;
+	public Vuelo() {
 	}
 
-	public Vuelo(int id, String numeroVuelo, String origen, String destino, int numeroPasajeros, boolean disponible) {
+	public Vuelo(int id, String origen, String destino, String fecha) {
 		super();
 		this.id = id;
-		this.numeroVuelo = numeroVuelo;
 		this.origen = origen;
 		this.destino = destino;
-		this.numeroPasajeros = numeroPasajeros;
-		this.disponible = disponible;
+		this.fecha = fecha;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getNumeroVuelo() {
-		return numeroVuelo;
-	}
-
-	public void setNumeroVuelo(String numeroVuelo) {
-		this.numeroVuelo = numeroVuelo;
 	}
 
 	public String getOrigen() {
@@ -66,21 +50,14 @@ public class Vuelo {
 		this.destino = destino;
 	}
 
-	public int getNumeroPasajeros() {
-		return numeroPasajeros;
+	public String getFecha() {
+		return fecha;
 	}
 
-	public void setNumeroPasajeros(int numeroPasajeros) {
-		this.numeroPasajeros = numeroPasajeros;
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
-
-	public boolean isDisponible() {
-		return disponible;
-	}
-
-	public void setDisponible(boolean disponible) {
-		this.disponible = disponible;
-	}
-
+	
+	
 
 }

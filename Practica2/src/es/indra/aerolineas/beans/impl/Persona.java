@@ -28,8 +28,6 @@ public abstract class Persona {
 		this.dni = dni;
 	}
 
-	public abstract String solicitarInformacion();
-
 	public String getNombre() {
 		return nombre.toUpperCase();
 	}
@@ -37,5 +35,6 @@ public abstract class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	
+	
 }
