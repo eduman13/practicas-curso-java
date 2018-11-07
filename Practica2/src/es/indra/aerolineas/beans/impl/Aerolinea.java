@@ -3,10 +3,11 @@
  */
 package es.indra.aerolineas.beans.impl;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 
 import es.indra.aerolineas.beans.IAerolinea;
+import es.indra.aerolineas.beans.exceptions.ErrorLecturaDeVuelosException;
 import es.indra.aerolineas.services.ReadFile;
 
 /**
@@ -74,13 +75,19 @@ public class Aerolinea implements IAerolinea {
 
 	public void consultarVuelos() {
 		ReadFile file = new ReadFile();
-		List<String> imprimir = file.retornarVuelos();
-		if (imprimir.isEmpty()) {
-			System.out.println("La lista esta vacía");
-		} else {
-			for (String elemento : imprimir) {
-				System.out.println(elemento);
+		List<String> vuelosEncontrados = new ArrayList<String>();
+		try {
+			vuelosEncontrados = file.retornarVuelos();
+			if (!vuelosEncontrados.isEmpty() && vuelosEncontrados != null) {
+				for (String elemento : vuelosEncontrados) {
+					System.out.println(elemento);
+				}
+			} else {
+				System.out.println("No se encontraron vuelos");
 			}
+		} catch (ErrorLecturaDeVuelosException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
