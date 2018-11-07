@@ -40,6 +40,7 @@ public class Venta {
 
 		Vuelo[] vuelosPasajero = { vuelos[0], vuelos[4] };
 
+		
 		p.setId(10);
 		p.setNombre("Jose Julian");
 		p.setApellido("Ariza Valderrama");
