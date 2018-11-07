@@ -21,7 +21,6 @@ public class ReadFile {
 		List<String> contenido = new ArrayList<>();
 		try {
 			contenido = Files.readAllLines(path);
-			//System.out.println(contenido);
 			return contenido;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -33,7 +32,8 @@ public class ReadFile {
 	}
 
 	public static void main(String[] args) {
-		ReadFile r = new ReadFile();
+		ReadFile r = new ReadFile();	
 		r.retornarVuelos();
 	}
 }
+

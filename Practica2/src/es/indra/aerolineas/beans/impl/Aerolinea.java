@@ -36,7 +36,7 @@ public class Aerolinea implements IAerolinea {
 	}
 
 	public Vuelo[] consultarVuelos(String origen) {
-		
+
 		return this.vuelos;
 	}
 
@@ -71,16 +71,18 @@ public class Aerolinea implements IAerolinea {
 	public void setVuelos(Vuelo[] vuelos) {
 		this.vuelos = vuelos;
 	}
-	
+
 	public void consultarVuelos() {
 		ReadFile file = new ReadFile();
 		List<String> imprimir = file.retornarVuelos();
-		Iterator<String> it = imprimir.iterator();
-		while(it.hasNext()){
-			String elemento = it.next();
-			System.out.println(elemento);
+		if (imprimir.isEmpty()) {
+			System.out.println("La lista esta vacía");
+		} else {
+			for (String elemento : imprimir) {
+				System.out.println(elemento);
+			}
 		}
-		
+
 	}
 
 }
