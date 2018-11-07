@@ -26,7 +26,7 @@ public class Venta {
 
 	/**
 	 * @param args
-	 */
+	 */	
 	public static void main(String[] args) {
 
 		Vuelo[] vuelos = creaVuelos();

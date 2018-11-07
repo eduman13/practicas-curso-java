@@ -17,7 +17,7 @@ import java.util.List;
 public class ReadFile {
 
 	public List<String> retornarVuelos() {
-		Path path = Paths.get("C:\\Users\\aula3\\repositorios\\CursoJava\\vuelos.txt");
+		Path path = Paths.get("C:\\Users\\aula1\\repositorios\\CursoJava\\practicas-curso-java\\vuelos.txt");
 		List<String> contenido = new ArrayList<>();
 		try {
 			contenido = Files.readAllLines(path);
