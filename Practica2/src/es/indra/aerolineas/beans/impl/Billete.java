@@ -10,7 +10,11 @@ public class Billete extends Vuelo {
 	}
 
 	public Billete(int id, String origen, String destino, String fecha, int asiento) {
-		super(id, origen, destino, fecha);
+		super();
+		this.id = id;
+		this.origen = origen;
+		this.destino = destino;
+		this.fecha = fecha;
 		this.asiento = asiento;
 
 	}

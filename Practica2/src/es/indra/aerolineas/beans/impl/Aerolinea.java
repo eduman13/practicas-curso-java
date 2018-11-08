@@ -24,23 +24,22 @@ public class Aerolinea implements IAerolinea {
 	private String nombre;
 	private List<Vuelo> vuelosDisponibles = new ArrayList<Vuelo>();
 	private List<Billete> billetesDisponibles = new ArrayList<Billete>();
-	
+
 	public Aerolinea() {
 	}
 
 	/**
 	 * @param id
 	 * @param nombre
-	 * @param vuelosDisponibles 
-	 * @param billetesDisponibles 
+	 * @param vuelosDisponibles
+	 * @param billetesDisponibles
 	 * @param vuelos
 	 */
 	public Aerolinea(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		
-		
+
 	}
 
 //	public List<Vuelo> consultarVuelos(String origen) {
@@ -74,7 +73,7 @@ public class Aerolinea implements IAerolinea {
 
 	public List<Vuelo> getVuelos() {
 		return vuelosDisponibles;
-		}
+	}
 
 	public List<Billete> getBilletesDisponibles() {
 		return billetesDisponibles;
@@ -102,16 +101,16 @@ public class Aerolinea implements IAerolinea {
 	public void publicarVuelos(Vuelo vuelo) {
 		vuelosDisponibles.add(vuelo);
 		int asiento = (int) Math.floor(Math.random() * 6 + 1);
-		Billete billete = new Billete(vuelo.getId(), vuelo.getOrigen(), vuelo.getDestino(), 
-				vuelo.getFecha(), asiento);		
+		Billete billete = (Billete) vuelo;
+		billete.setAsiento(asiento);
 		billetesDisponibles.add(billete);
 
 	}
 
 	public List<Billete> verBilletePorFecha(String fecha) {
 		List<Billete> billeteFecha = new ArrayList<Billete>();
-		for(Billete billete: billetesDisponibles) {
-			if(billete.getFecha().equals(fecha)) {
+		for (Billete billete : billetesDisponibles) {
+			if (billete.getFecha().equals(fecha)) {
 				billeteFecha.add(billete);
 			}
 		}
