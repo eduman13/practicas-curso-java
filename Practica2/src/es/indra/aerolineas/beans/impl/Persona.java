@@ -19,6 +19,7 @@ public abstract class Persona {
 	 * @param dni
 	 */
 	public Persona() {
+		
 	}
 
 	public Persona(String nombre, String apellidos, String dni) {

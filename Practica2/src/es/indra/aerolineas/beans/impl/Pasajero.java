@@ -22,12 +22,12 @@ public class Pasajero extends Persona {
 	 */
 
 	public Pasajero() {
+		super();
 	}
 
-	public Pasajero(int id, List<Billete> billetesComprados) {
+	public Pasajero(int id) {
 		super();
 		this.id = id;
-		this.billetesComprados = billetesComprados;
 	}
 
 	public int getId() {

@@ -44,7 +44,6 @@ public class Venta {
 
 //		Vuelo[] vuelosPasajero = { vuelos[0], vuelos[4] };
 
-		
 //		p.setId(10);
 //		p.setNombre("Jose Julian");
 //		p.setApellido("Ariza Valderrama");
@@ -64,19 +63,26 @@ public class Venta {
 
 		// System.out.println(emp.getNombre());
 		// System.out.println(p.getNombre());
-		
-		List<Billete> comprarBilletes = new ArrayList<Billete>();
-		List<Billete> billetesIberia = new ArrayList<Billete>();
-		List<Vuelo> vuelosIberia = new ArrayList<Vuelo>();
 		Vuelo vuelo1 = new Vuelo(1234, "MAD", "BCN", "2");
 		Vuelo vuelo2 = new Vuelo(12345, "MAD", "BCN", "3");
 		Pasajero pasajero1 = new Pasajero();
-		Aerolinea iberia = new Aerolinea(1, "Iberia", vuelosIberia, billetesIberia);
+		Aerolinea iberia = new Aerolinea(1, "Iberia");
 		iberia.publicarVuelos(vuelo1);
 		iberia.publicarVuelos(vuelo2);
 		pasajero1.buscarBilletes(iberia, "MAD", "BCN");
 		pasajero1.comprarBillete(iberia, pasajero1, 1234);
 		pasajero1.comprarBillete(iberia, pasajero1, 1234);
+		Aerolinea ryanair = new Aerolinea(2, "Ryanair");
+		Vuelo vuelo3 = new Vuelo(123456, "BCN", "MAD", "3");
+		ryanair.publicarVuelos(vuelo3);
+		pasajero1.buscarBilletes(ryanair, "BCN", "MAD");
+		System.out.println("Llega aqui");
+		// pasajero1.comprarBillete(ryanair, pasajero1, 123456);
+		Pasajero pasajero2 = new Pasajero();
+		pasajero2.buscarBilletes(ryanair, "BCN", "MAD");
+		pasajero2.comprarBillete(ryanair, pasajero2, 123456);
+		pasajero2.comprarBillete(ryanair, pasajero2, 123456);
+		pasajero2.comprarBillete(iberia, pasajero2, 1234);
 
 	}
 

@@ -31,14 +31,16 @@ public class Aerolinea implements IAerolinea {
 	/**
 	 * @param id
 	 * @param nombre
+	 * @param vuelosDisponibles 
+	 * @param billetesDisponibles 
 	 * @param vuelos
 	 */
-	public Aerolinea(int id, String nombre, List<Vuelo> vuelosDisponibles, List<Billete> billetesDisponibles) {
+	public Aerolinea(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.vuelosDisponibles = vuelosDisponibles;
-		this.billetesDisponibles = billetesDisponibles;
+		
+		
 	}
 
 //	public List<Vuelo> consultarVuelos(String origen) {
@@ -72,7 +74,7 @@ public class Aerolinea implements IAerolinea {
 
 	public List<Vuelo> getVuelos() {
 		return vuelosDisponibles;
-	}
+		}
 
 	public List<Billete> getBilletesDisponibles() {
 		return billetesDisponibles;

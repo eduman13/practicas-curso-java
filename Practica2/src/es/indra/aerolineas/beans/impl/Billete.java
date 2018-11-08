@@ -9,13 +9,12 @@ public class Billete extends Vuelo {
 
 	}
 
-	public Billete(int id, String origen, String destino,
-			String fecha, int asiento) {
+	public Billete(int id, String origen, String destino, String fecha, int asiento) {
 		super(id, origen, destino, fecha);
 		this.asiento = asiento;
-		
+
 	}
-	
+
 	public int getAsiento() {
 		return asiento;
 	}
