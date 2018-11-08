@@ -25,8 +25,11 @@ public class Pasajero extends Persona {
 		super();
 	}
 
-	public Pasajero(int id) {
+	public Pasajero(String nombre, String apellidos, String dni, int id) {
 		super();
+		this.nombre = nombre;
+		this.apellido = apellidos;
+		this.dni = dni;
 		this.id = id;
 	}
 
