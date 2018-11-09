@@ -25,6 +25,9 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
+	/**
+	 * Método para recorrer comprasRealizadas
+	 */
 	public void recorrerComprasRealizadas() {
 		for (Compra compra : comprasRealizadas) {
 			System.out.println(compra.getProducto().getNombre());
@@ -63,11 +66,22 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
-	public void registrarEnEmpresa(Empresa empresa, Cliente cliente) {
-		empresa.setClientesEmpresa(cliente);
-		empresa.setListaClienteCompra(cliente, comprasRealizadas);
+	/**
+	 * Método paar registrarse en una empresa para poder comprar sus productos
+	 * 
+	 * @param empresa
+	 */
+	public void registrarEnEmpresa(Empresa empresa) {
+		empresa.setClientesEmpresa(this);
+		empresa.setListaClienteCompra(this, comprasRealizadas);
 	}
 
+	/**
+	 * Método para buscar los productos de la empresa que coinciden con el nombre
+	 * 
+	 * @param nombre
+	 * @param empresa
+	 */
 	public void buscarProducto(String nombre, Empresa empresa) {
 		for (Producto producto : empresa.getListaProductos()) {
 			if (producto.getNombre().equals(nombre)) {
@@ -77,11 +91,23 @@ public class Cliente {
 		}
 	}
 
-	public boolean comprar(Empresa empresa, Cliente cliente, Producto producto, int cantidad) {
+	/**
+	 * Método para comprar una determinada cantidad de un prdoducto de una empresa
+	 * 
+	 * @param empresa
+	 * @param producto
+	 * @param cantidad
+	 * @return devuelve true si se pudo comprar el producto y false si no se pudo
+	 *         comprar
+	 */
+	public boolean comprar(Empresa empresa, Producto producto, int cantidad) {
 		JFrame parent = new JFrame();
-		if (!empresa.getClientesEmpresa().contains(cliente)) {
+		if (cantidad <= 0) {
+			JOptionPane.showMessageDialog(parent, "Por favor, introduzca un número positivo ");
+			return false;
+		} else if (!empresa.getClientesEmpresa().contains(this)) {
 			JOptionPane.showMessageDialog(parent,
-					"No estas Registrado " + cliente.getNombre() + " " + cliente.getApellidos());
+					"No estas Registrado " + this.getNombre() + " " + this.getApellidos());
 			return false;
 		} else if (producto.getStock() <= cantidad) {
 			System.out.println("No hay suficiente stock");
@@ -90,7 +116,6 @@ public class Cliente {
 			producto.setStock(producto.getStock() - cantidad);
 			Compra compra = new Compra("08/11/2018", producto);
 			comprasRealizadas.add(compra);
-			// System.out.println("Producto Restante: " + producto.getStock());
 			return true;
 		}
 

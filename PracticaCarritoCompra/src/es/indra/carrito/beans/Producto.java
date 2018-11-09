@@ -2,8 +2,13 @@ package es.indra.carrito.beans;
 
 public class Producto {
 
+	public enum Categoría {
+		ALIMENTACION, PERFUMERIA, LIMPIEZA
+	}
+
 	private String nombre;
 	private String descripción;
+	private Categoría categoria;
 	private double precio;
 	private int stock;
 
@@ -11,10 +16,11 @@ public class Producto {
 
 	}
 
-	public Producto(String nombre, String descripción, double precio, int stock) {
+	public Producto(String nombre, String descripción, Categoría categoria, double precio, int stock) {
 		super();
 		this.nombre = nombre;
 		this.descripción = descripción;
+		this.categoria = categoria;
 		this.precio = precio;
 		this.stock = stock;
 	}
@@ -49,6 +55,10 @@ public class Producto {
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public Categoría getCategoria() {
+		return categoria;
 	}
 
 }

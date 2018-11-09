@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class Empresa {
 
@@ -18,25 +17,40 @@ public class Empresa {
 
 	}
 
+	/**
+	 * Método para recorrer clientesEmpresa
+	 */
 	public void recorrerClientesEmpresa() {
-		for(Cliente cliente: clientesEmpresa) {
+		for (Cliente cliente : clientesEmpresa) {
 			System.out.println(cliente.getNombre());
 		}
 	}
-	
+
+	/**
+	 * Método para recorrer el HashMap listaClienteCompra
+	 */
 	public void recorrerListaClienteCompra() {
 		Iterator<Cliente> it = listaClienteCompra.keySet().iterator();
 		List<Compra> listaAuxiliar = new ArrayList<Compra>();
-		while(it.hasNext()){
-		  Cliente key = it.next();
-		  listaAuxiliar = listaClienteCompra.get(key);
-		  System.out.println(key.getNombre());
-		  for(Compra compra: listaAuxiliar) {
-			  System.out.println(compra.getProducto().getNombre());
-		  }
+		while (it.hasNext()) {
+			Cliente key = it.next();
+			listaAuxiliar = listaClienteCompra.get(key);
+			System.out.println(key.getNombre());
+			for (Compra compra : listaAuxiliar) {
+				System.out.println(compra.getProducto().getNombre());
+			}
 		}
 	}
-	
+
+	/**
+	 * Método para recorrer ListaProductos
+	 */
+	public void recorrerListaProductos() {
+		for (Producto producto : listaProductos) {
+			System.out.println("Nombre Producto: " + producto.getNombre() + " Stock: " + producto.getStock());
+		}
+	}
+
 	public Empresa(String nombre) {
 		super();
 		this.nombre = nombre;
@@ -83,18 +97,55 @@ public class Empresa {
 		}
 	}
 
+	/**
+	 * Método para incrementar el stock de un producto
+	 * 
+	 * @param producto
+	 * @param cantidad
+	 */
 	public void incrementarStock(Producto producto, int cantidad) {
-		producto.setStock(producto.getStock() + cantidad);
-		
-	}
-
-	public void decrementarStock(Producto producto, int cantidad) {
-		if (producto.getStock() <= cantidad) {
-			System.out.println("No hay suficiente stock, Tenemos:" + producto.getStock() + " de " + 
-		producto.getNombre());
+		if (!listaProductos.contains(producto)) {
+			System.out.println("No existe el producto");
 		} else {
-			producto.setStock(producto.getStock() - cantidad);
+			int posicionProducto = listaProductos.lastIndexOf(producto);
+			Producto productoIncrementar = listaProductos.get(posicionProducto);
+			productoIncrementar.setStock(productoIncrementar.getStock() + cantidad);
 		}
 	}
 
+	/**
+	 * Método para decrementar el stock de un producto
+	 * 
+	 * @param producto
+	 * @param cantidad
+	 */
+	public void decrementarStock(Producto producto, int cantidad) {
+		if (producto.getStock() < cantidad) {
+			System.out
+					.println("No hay suficiente stock, Tenemos " + producto.getStock() + " de " + producto.getNombre());
+		} else {
+			if (!listaProductos.contains(producto)) {
+				System.out.println("No existe el producto");
+			} else {
+				int posicionProducto = listaProductos.lastIndexOf(producto);
+				Producto productoIncrementar = listaProductos.get(posicionProducto);
+				productoIncrementar.setStock(productoIncrementar.getStock() - cantidad);
+			}
+		}
+	}
+
+	/**
+	 * Método para añadir un producto a la lista de productos en venta de la Empresa
+	 * 
+	 * @param producto
+	 */
+	public void anadirProducto(Producto... producto) {
+		for (int i = 0; i < producto.length; i++) {
+			if (!listaProductos.contains(producto[i])) {
+				listaProductos.add(producto[i]);
+			} else {
+				System.out.printf("El producto %s ya esta en venta\n", producto[i].getNombre());
+			}
+		}
+	}
 }
