@@ -35,4 +35,4 @@ Paquete para las implementaciones de POJOs
 
 ### .main
 
-*Pruebas: clase para realizar pruebas
+* Pruebas: clase para realizar pruebas
